@@ -1,5 +1,5 @@
 /* Linux
-中断 按键GPIO触发 App 读阻塞
+中断 按键GPIO触发 App 异步通知
 Reference:Alientek I.MX6U
  */
 
@@ -67,9 +67,9 @@ int main(int argc, char *argv[])
     }
 
     signal(SIGIO, sigio_signal_func);
-    fcntl(fd, F_SETOWN, getpid());      /* 将当前进程的进程号告诉给内核 */
-    flags = fcntl(fd, F_GETFD);         /* 获取当前的进程状态 */
-    fcntl(fd, F_SETFL, flags | FASYNC); /* 设置进程启用异步通知功能 */
+    fcntl(fd, F_SETOWN, getpid());       //将当前进程的进程号告诉给内核
+    flags = fcntl(fd, F_GETFD);             //获取当前的进程状态
+    fcntl(fd, F_SETFL, flags | FASYNC); // 设置进程启用异步通知功能
 
     while (1)
     {

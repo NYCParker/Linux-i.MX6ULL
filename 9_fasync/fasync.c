@@ -1,5 +1,5 @@
 /* Linux
-中断 按键GPIO触发 读阻塞
+中断 按键GPIO触发 异步通知
 Reference:Alientek I.MX6U
  */
 
