@@ -1,0 +1,17 @@
+    //**pin gpio子系统led
+    gpioled{
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "gpio-led";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_led>;             //gpioled对应的pinctrl节点(pinctrl会复用好gpio03 并设置IO电气属性)
+		led-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;  //指定gpioled使用gpio103，低点平有效
+		status = "okay";                        //编写驱动程序的时候会获取 led-gpio 属性的内容来得到 GPIO 编号
+	};
+
+
+        //4 添加的ledpinctrl节点  复用GPIO 设置IO电气属性
+        pinctrl_led: ledgrp {
+        fsl,pins = <
+        	MX6UL_PAD_GPIO1_IO03__GPIO1_IO03        0x10B0 /* LED0 */
+        >;

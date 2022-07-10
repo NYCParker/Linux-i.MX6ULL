@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "ide.h": "c",
+        "module.h": "c",
+        "stdio.h": "c",
+        "io.h": "c",
+        "device.h": "c",
+        "map.h": "c",
+        "led_new.h": "c",
+        "interrupt.h": "c",
+        "hardirq.h": "c",
+        "irq.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled",
+}
+
